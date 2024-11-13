@@ -67,7 +67,7 @@
     margin-bottom: 20px;
     padding: 20px;
     box-sizing: border-box;
-    color: #fff;
+    color: black;
     border-radius: 10px; /* Borde redondeado */
     text-align: center; /* Centrar contenido */
     display: flex;
@@ -151,14 +151,14 @@
 
 .custom-product .ver-proyecto {
     display: block;
-    color: #fff;
+    color: #05202B;
     text-decoration: underline;
     text-align: center;
     margin-top: 10px;
 }
 
 .custom-product .ver-proyecto:hover {
-    color: #ccc;
+    color: #EE3046;
 }
 
 @media (max-width: 767px) {

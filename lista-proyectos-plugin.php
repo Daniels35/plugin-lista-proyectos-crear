@@ -20,13 +20,12 @@ function normalizar_texto($texto) {
 function lista_proyectos_shortcode() {
     ob_start();
 
-    // Obtener los parámetros de consulta 'nombre'
+    // Obtener los parámetros de consulta que comiencen con 'nombre'
     $nombres_filtro = array();
-    if (isset($_GET['nombre1'])) {
-        $nombres_filtro[] = normalizar_texto(sanitize_text_field($_GET['nombre1']));
-    }
-    if (isset($_GET['nombre2'])) {
-        $nombres_filtro[] = normalizar_texto(sanitize_text_field($_GET['nombre2']));
+    foreach ($_GET as $key => $value) {
+        if (strpos($key, 'proyecto') === 0) {  // Si el parámetro empieza con 'nombre'
+            $nombres_filtro[] = normalizar_texto(sanitize_text_field($value));
+        }
     }
 
     // Consulta para obtener los productos
@@ -39,11 +38,12 @@ function lista_proyectos_shortcode() {
 
     if ($products->have_posts()) :
         echo '<div class="filter-bar">';
-        echo '<input type="text" id="search-bar" placeholder="Buscar productos...">';
+        //echo '<input type="text" id="search-bar" placeholder="Buscar productos...">';
         echo '</div>';
         echo '<div class="custom-product-list">';
-
-        $background_colors = array("#E4002B", "#ACA39A", "#05202B");
+    ///#E4002B", "#ACA39A", "#05202B
+    ///#C2B8B0
+        $background_colors = array("#C2B8B0", "#C2B8B0", "#C2B8B0");
         $color_index = 0;
 
         while ($products->have_posts()) : $products->the_post();
